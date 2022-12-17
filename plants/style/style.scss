@@ -12,11 +12,15 @@ $select-unactive: #D6E7D2;
 $lightGreen: #EDF2EC;
 $totalWhite: #FFFFFF;
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  scroll-behavior: smooth;
+
 }
 
 li {
@@ -30,6 +34,7 @@ a {
 
 body {
   background-color: $lightGreen;
+
 }
 
 
@@ -46,6 +51,11 @@ body {
 
 .fox {
   color: $fox;
+}
+
+.outline:hover {
+  text-shadow: 0 0 1em $fox;
+  transition: 0.3s;
 }
 
 .container {
@@ -83,6 +93,7 @@ body {
   line-height: 50px;
   color: $fox;
   transition: 0.3s;
+  text-shadow: none;
 }
 
 .items-font {
