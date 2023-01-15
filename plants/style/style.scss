@@ -37,6 +37,10 @@ body {
 
 }
 
+body.lock {
+  overflow: hidden;
+}
+
 
 //font-family: 'Inika', serif;
 //font-family: 'Inter', sans-serif;
@@ -226,14 +230,78 @@ body {
     line-height: 35px;
   }
 
-  @media screen and (max-width: 720px) {
-    .container {
-      width: 330px;
-    }
-
+  .nav-font {
+    font-size: 16px;
+    //line-height: 21px;
   }
+
+
 }
 
+
+@media screen and (max-width: 720px) {
+  section {
+    position: relative; /* важно - для того, чтобы псевдоэлемент позиционировался относительно этого элемента */
+    border-top: 98px solid transparent;
+    margin-top: -98px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+  }
+
+  .container {
+    width: 330px;
+    overflow: hidden;
+  }
+  .button {
+    width: 121px;
+  }
+
+  .button-font {
+    font-size: 10px;
+    line-height: 20px;
+  }
+
+  .nav-active-font {
+    line-height: 150%;
+  }
+
+  .home-title-font {
+    font-size: 25px;
+    line-height: 35px;
+  }
+
+  .cards-description-font {
+    font-size: 10px;
+    line-height: 14px;
+  }
+
+  .title-font {
+    font-size: 25px;
+    line-height: 33px;
+  }
+
+  .description-font {
+    font-size: 15px;
+    line-height: 25px;
+  }
+
+  .cards-description-font {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .prices-title-font {
+    font-size: 25px;
+    line-height: 30px;
+  }
+
+  .prices-list-item-title {
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+}
 
 header {
   .container {
@@ -255,6 +323,11 @@ header {
     nav ul{
       display: flex;
       gap: 46px;
+
+    }
+
+    .burger {
+      display: none;
     }
   }
 
@@ -265,9 +338,136 @@ header {
       margin-bottom: 35px;
     }
   }
+
+  @media screen and (max-width: 720px) {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+
+    &:before {
+      content:'';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $lightGreen;
+      z-index: 2;
+    }
+    .container {
+      margin-top: 23px;
+      margin-bottom: 23px;
+      position: relative;
+      align-items: center;
+
+      .logo {
+        z-index: 2;
+      }
+
+      .burger {
+        display: block;
+        position: relative;
+        width: 40px;
+        height: 24px;
+        z-index: 2;
+
+        &:before,
+        &:after {
+          content:'';
+          background-color: $gray2;
+          position: absolute;
+          width: 100%;
+          height: 2px;
+          left: 0;
+        }
+
+        &:before {
+          top: 0;
+          transition: all 0.3s ease 0s;
+        }
+
+        &.active:before {
+          transform: rotate(45deg);
+          top: 11px;
+        }
+
+        &:after {
+          bottom: 0;
+          transition: all 0.3s ease 0s;
+        }
+
+        &.active:after {
+          transform: rotate(-45deg);
+          bottom: 11px;
+        }
+
+        span:first-of-type {
+          position: absolute;
+          background-color: $gray2;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          top: 7px;
+          transition: all 0.3s ease 0s;
+        }
+        span:last-of-type {
+          position: absolute;
+          background-color: $gray2;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          bottom: 7px;
+          transition: all 0.3s ease 0s;
+        }
+
+        &.active {
+          span {
+            transform: scale(0);
+          }
+        }
+      }
+
+      nav {
+        width: 100%;
+        position: fixed;
+        top: -100%;
+        left: 0;
+        height: 50%;
+        background-color: $lightGreen;
+        transition: all 0.3s ease 0s;
+        overflow: auto;
+        box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+
+        ul {
+          width: 330px;
+          margin: 120px auto 0;
+          flex-direction: column;
+          justify-content: flex-start;
+          gap: 10px;
+
+
+          &.nav-font {
+            line-height: 150%;
+          }
+        }
+
+        &.active {
+          top: 0;
+        }
+
+      }
+    }
+  }
 }
 
-
+@media screen and (max-width: 720px) {
+  main {
+    padding-top: 98px;
+  }
+}
 
 #home {
   .container {
@@ -289,6 +489,7 @@ header {
 
       .description-font {
         line-height: 35px;
+
       }
 
       .home-info-link {
@@ -344,6 +545,30 @@ header {
     }
   }
 
+  @media screen and (max-width: 720px) {
+    .container {
+      padding-top: 24px;
+      padding-bottom: 24px;
+
+      img {
+        display: none;
+      }
+
+      .home-info {
+        gap: 20.5px;
+
+        .home-info-link {
+          width: 100px;
+          padding: 8px;
+        }
+
+        .cards-description-font {
+          font-size: 10px;
+          line-height: 14px;
+        }
+      }
+    }
+  }
 }
 
 #about {
@@ -388,6 +613,26 @@ header {
         height: 258px;
       }
 
+    }
+  }
+
+  @media (max-width: 720px) {
+    .container {
+      padding: 30px 0 35px;
+      gap: 0;
+
+      .about-info {
+        gap: 13.5px;
+
+        .description-font {
+          line-height: 166%;
+        }
+      }
+
+      img {
+        width: 150px;
+        height: 147px;
+      }
     }
   }
 
@@ -479,6 +724,43 @@ header {
             }
 
           }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 720px) {
+  background-color: $lightGreen;
+    .container {
+      .service-title {
+        padding-top: 30px;
+
+        .service-title-filters {
+          margin-top: 40px;
+
+          ul {
+            gap: 10px;
+            flex-wrap: wrap;
+          }
+
+          .button {
+            font-size: 15px;
+            line-height: 20px;
+            padding: 6px;
+          }
+        }
+      }
+
+      .service-cards {
+        justify-content: center;
+        padding-bottom: 27px;
+
+        .card:not(:last-child) {
+          margin-bottom: 34px;
+        }
+
+        .card:last-child {
+          margin-bottom: 0;
         }
       }
     }
@@ -580,6 +862,63 @@ header {
 
   }
 
+  @media screen and (max-width: 720px) {
+    z-index: -1;
+
+    .container {
+      padding-top: 25px;
+      padding-bottom: 40px;
+      flex-direction: column;
+
+      .prices-list {
+        h2 {
+          text-align: center;
+          margin-left: 0;
+          margin-bottom: 35px;
+        }
+
+        ul {
+          width: 224px;
+          padding: 29px 22px;
+          margin: 0 auto;
+          gap: 14px;
+
+          li .prices-list-item {
+            width: 180px;
+            height: 50px;
+            padding: 10px 30px;
+
+            .select-arrow {
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+
+      .prices-contact {
+        margin-top: 20px;
+        align-items: center;
+        gap: 14px;
+
+        img {
+          display: none;
+        }
+
+        .prices-title-font {
+          font-size: 20px;
+          line-height: 35px;
+          text-align: center;
+        }
+
+        button.button {
+          font-size: 15px;
+          line-height: 20px;
+          margin-top: 5px;
+          padding: 6px;
+        }
+      }
+    }
+  }
 
 }
 
@@ -663,6 +1002,46 @@ header {
     }
   }
 
+  @media screen and (max-width: 720px) {
+    .container {
+      gap: 0;
+
+      .img-wrap {
+        margin-top: 133px;
+        width: 100px;
+        height: 124px;
+        margin-left: 0;
+
+        img {
+          width: 100px;
+          height: 124px;
+        }
+      }
+      .contact-info {
+        margin-top: 25px;
+
+        h2 {
+          margin-bottom: 80px;
+        }
+        .title-font {
+          font-size: 25px;
+          line-height: 33px;
+        }
+        .contact-city {
+          .contact-city-choose {
+            width: 300px;
+
+            .contact-city-chose-title.description-font{
+              font-size: 20px;
+              line-height: 40px;
+            }
+          }
+        }
+      }
+    }
+
+  }
+
 }
 
 footer {
@@ -703,6 +1082,17 @@ footer {
       .school {
         line-height: 24px;
         margin-bottom: 25px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 720px) {
+    .container {
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      .school {
+        margin-bottom: 15px;
       }
     }
   }
