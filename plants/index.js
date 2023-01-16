@@ -8,22 +8,27 @@ window.onload = function() {
 
     const navItems = document.querySelectorAll('nav ul li')
     burger.addEventListener('click', ()=> {
-        burger.classList.toggle('active')
-        nav.classList.toggle('active')
-        body.classList.toggle('lock')
+        if(window.innerWidth < 721) {
+            burger.classList.toggle('active')
+            nav.classList.toggle('active')
+            body.classList.toggle('lock')
+        }
     })
 
     navItems.forEach(item => item.addEventListener('click', ()=>{
-
-        burger.classList.toggle('active')
-        nav.classList.toggle('active')
-        body.classList.toggle('lock')
+        if(window.innerWidth < 721) {
+            burger.classList.toggle('active')
+            nav.classList.toggle('active')
+            body.classList.toggle('lock')
+        }
     }))
 
     main.addEventListener('click', ()=>{
-        burger.classList.remove('active')
-        nav.classList.remove('active')
-        body.classList.remove('lock')
+        if(window.innerWidth < 721) {
+            burger.classList.remove('active')
+            nav.classList.remove('active')
+            body.classList.remove('lock')
+        }
     })
 
 };

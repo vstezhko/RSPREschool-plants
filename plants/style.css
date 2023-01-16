@@ -22,10 +22,6 @@ body {
   background-color: #EDF2EC;
 }
 
-body.lock {
-  overflow: hidden;
-}
-
 .green {
   color: #499A18;
 }
@@ -248,6 +244,9 @@ body.lock {
     font-size: 15px;
     line-height: 20px;
   }
+  body.lock {
+    overflow: hidden;
+  }
 }
 header .container {
   margin-top: 42px;
@@ -372,6 +371,13 @@ header .container .burger {
     flex-direction: column;
     justify-content: flex-start;
     gap: 10px;
+  }
+  header .container nav ul a {
+    display: block;
+    width: 100%;
+    font-family: "Inika", serif;
+    font-size: 21px;
+    line-height: 33px;
   }
   header .container nav ul.nav-font {
     line-height: 150%;

@@ -37,9 +37,7 @@ body {
 
 }
 
-body.lock {
-  overflow: hidden;
-}
+
 
 
 //font-family: 'Inika', serif;
@@ -301,6 +299,10 @@ body.lock {
     line-height: 20px;
   }
 
+  body.lock {
+    overflow: hidden;
+  }
+
 }
 
 header {
@@ -447,6 +449,14 @@ header {
           flex-direction: column;
           justify-content: flex-start;
           gap: 10px;
+
+          a {
+            display: block;
+            width: 100%;
+            font-family: "Inika", serif;
+            font-size: 21px;
+            line-height: 33px;
+          }
 
 
           &.nav-font {
