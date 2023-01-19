@@ -871,6 +871,10 @@ header .container .burger {
   justify-content: flex-end;
 }
 #contact .container .contact-info .contact-city .contact-city-choose {
+  width: 450px;
+  position: relative;
+}
+#contact .container .contact-info .contact-city .contact-city-choose .contact-city-choose-head {
   cursor: pointer;
   background: #D6E7D2;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -878,8 +882,56 @@ header .container .burger {
   justify-content: space-between;
   align-items: center;
   padding: 2px 20px;
-  width: 450px;
+  width: 100%;
   height: 50px;
+}
+#contact .container .contact-info .contact-city .contact-city-choose .contact-city-choose-head .select-arrow {
+  transition: all 0.3s;
+}
+#contact .container .contact-info .contact-city .contact-city-choose .contact-city-choose-head.opened {
+  background: #C1E698;
+  border: 1px solid #D6E7D2;
+  border-radius: 0;
+  box-shadow: none;
+}
+#contact .container .contact-info .contact-city .contact-city-choose .contact-city-choose-head.opened .select-arrow {
+  background-color: #8BA07E;
+  transform: rotate(-180deg);
+  transition: all 0.3s;
+}
+#contact .container .contact-info .contact-city .contact-city-choose .contact-city-choose-head.opened ~ .contact-city-choose-options {
+  display: block;
+  transition: all 0.3s;
+}
+#contact .container .contact-info .contact-city .contact-city-choose .contact-city-choose-options {
+  width: 100%;
+  display: none;
+  position: absolute;
+  padding: 2px 20px 30px;
+  background-color: #DCE9D9;
+  transition: all 0.3s;
+}
+#contact .container .contact-info .contact-city .contact-city-choose .contact-city-choose-options ul li {
+  font-family: "Inter", "sans-serif";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 40px;
+  letter-spacing: 0.05em;
+  color: #499A18;
+  border-bottom: 1px solid #D9D9D9;
+  padding-left: 3px;
+  transition: all 0.3s;
+}
+#contact .container .contact-info .contact-city .contact-city-choose .contact-city-choose-options ul li:hover {
+  border-bottom: 1px solid #717171;
+  color: #717171;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+#contact .container .contact-info .contact-city .contact-city-choose .contact-city-choose-options ul li.selected {
+  color: #E06733;
+  border-bottom: 1px solid #E06733;
+  transition: all 0.3s;
 }
 @media screen and (max-width: 1260px) {
   #contact .container {

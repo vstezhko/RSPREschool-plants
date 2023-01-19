@@ -79,7 +79,7 @@ window.onload = function() {
     // accordion
 
     const priceItems = document.querySelectorAll('.prices-list-item')
-    const accordionArrow = document.querySelectorAll('.select-arrow')
+    const accordionArrow = document.querySelectorAll('.prices-list-item .select-arrow')
 
     accordionArrow.forEach(item => {
 
@@ -97,8 +97,33 @@ window.onload = function() {
 
     // select
 
+    const citySelect = document.querySelector('.contact-city-choose-head')
+    const citySelectOptions = document.querySelectorAll('.contact-city-choose-options ul li')
+    const selectedCity = document.querySelector('.contact-city-chose-title')
 
+    const handleSelected = (option) => {
+        option.classList.toggle('selected')
+        if (option.classList.contains("selected")) {
+            selectedCity.textContent = option.textContent
+        } else {
+            selectedCity.textContent = "City"
+        }
+        citySelect.classList.remove('opened')
+    }
 
+    citySelect.addEventListener('click', ()=>{
+        citySelect.classList.toggle('opened')
+    })
 
+    citySelectOptions.forEach(option => {
+        option.addEventListener('click', ()=>{
+            citySelectOptions.forEach(opt => {
+                if (opt !== option) {
+                    opt.classList.remove('selected')
+                }
+            })
+            handleSelected(option)
+        })
+    })
 
 };
