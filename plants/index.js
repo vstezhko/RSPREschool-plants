@@ -1,7 +1,9 @@
 console.log("все требования учтены")
 
 window.onload = function() {
+
     /// menu block
+
     const burger = document.querySelector('.burger')
     const nav = document.querySelector('nav')
     const body = document.querySelector('body')
@@ -74,28 +76,26 @@ window.onload = function() {
         setThirdDisabled()
     }))
 
-
     // accordion
 
     const priceItems = document.querySelectorAll('.prices-list-item')
-    const ul = document.querySelector('.prices-list ul')
+    const accordionArrow = document.querySelectorAll('.select-arrow')
 
-    ul.addEventListener('click', ()=>{
-        console.log('cgchchch')
-    })
-
-    priceItems.forEach(item => {
+    accordionArrow.forEach(item => {
 
         item.addEventListener('click', ()=>{
             console.log('click')
             priceItems.forEach(i => {
-                if (i.classList.contains('open') && i !== item) {
+                if (i.classList.contains('open') && i !== item.parentElement.parentElement) {
                     i.classList.remove('open')
                 }
             })
-            item.classList.toggle('open')
+
+            item.parentElement.parentElement.classList.toggle('open')
         })
     })
+
+    // select
 
 
 

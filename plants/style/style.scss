@@ -229,7 +229,7 @@ body {
     transition: 0.3s;
   }
 
-  .outline:hover .prices-list-item-head {
+  .outline:hover {
     text-shadow: 0 0 1em $fox;
     transition: 0.3s;
   }
@@ -856,7 +856,7 @@ header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            cursor: pointer;
+
 
             .select-arrow {
               width: 16px;
@@ -867,6 +867,7 @@ header {
               justify-content: center;
               align-items: center;
               transition: all 0.3s;
+              cursor: pointer;
             }
           }
 
@@ -906,7 +907,7 @@ header {
                 color: #000000;
               }
             }
-            button.price-accordion-order {
+            a.price-accordion-order {
               background: #FFFFFF;
               border-radius: 10px;
               padding: 3px 10px;

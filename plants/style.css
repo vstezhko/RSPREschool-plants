@@ -193,7 +193,7 @@ body {
     color: #FFFFFF;
     transition: 0.3s;
   }
-  .outline:hover .prices-list-item-head {
+  .outline:hover {
     text-shadow: 0 0 1em #E06733;
     transition: 0.3s;
   }
@@ -702,7 +702,6 @@ header .container .burger {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  cursor: pointer;
 }
 #prices .container .prices-list ul .prices-list-item .prices-list-item-head .select-arrow {
   width: 16px;
@@ -713,6 +712,7 @@ header .container .burger {
   justify-content: center;
   align-items: center;
   transition: all 0.3s;
+  cursor: pointer;
 }
 #prices .container .prices-list ul .prices-list-item .prices-list-item-accordion {
   display: none;
@@ -747,7 +747,7 @@ header .container .burger {
   line-height: 20px;
   color: #000000;
 }
-#prices .container .prices-list ul .prices-list-item.open .prices-list-item-accordion button.price-accordion-order {
+#prices .container .prices-list ul .prices-list-item.open .prices-list-item-accordion a.price-accordion-order {
   background: #FFFFFF;
   border-radius: 10px;
   padding: 3px 10px;
