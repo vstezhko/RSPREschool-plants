@@ -159,19 +159,38 @@ body {
   width: 161px;
   color: #E06733;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-.button:hover {
+.button.active {
   background: #E06733;
   color: #FFFFFF;
   transition: 0.3s;
 }
 
-.button-active {
-  background: #E06733;
-  color: #FFFFFF;
+.button:disabled {
+  color: #717171;
+  border-color: #717171;
+  transition: 0.3s;
+  pointer-events: none;
 }
 
+.service-cards .card.blur,
+.service-cards .card.blur,
+.service-cards .card.blur {
+  filter: blur(2px);
+  transition: 0.3s;
+}
+
+@media screen and (min-width: 1261px) {
+  .button:hover {
+    background: #E06733;
+    border: 2px solid #E06733;
+    border-radius: 10px;
+    color: #FFFFFF;
+    transition: 0.3s;
+  }
+}
 @media screen and (max-width: 1260px) {
   .container {
     width: 668px;

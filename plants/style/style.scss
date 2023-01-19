@@ -187,20 +187,41 @@ body {
   width: 161px;
   color: $fox;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-.button:hover {
+
+
+.button.active {
   background: $fox;
   color: $totalWhite;
   transition: 0.3s;
 }
 
-.button-active {
-  background: $fox;
-  color: $totalWhite;
+.button:disabled {
+  color: $gray2;
+  border-color: $gray2;
+  transition: 0.3s;
+  pointer-events: none;
+
 }
 
+.service-cards .card.blur,
+.service-cards .card.blur,
+.service-cards .card.blur {
+  filter:blur(2px);
+  transition: 0.3s;
+}
 
+@media screen and (min-width: 1261px) {
+  .button:hover {
+    background: $fox;
+    border: 2px solid $fox;
+    border-radius: 10px;
+    color: $totalWhite;
+    transition: 0.3s;
+  }
+}
 
 @media screen and (max-width: 1260px) {
   .container {
@@ -232,7 +253,6 @@ body {
     font-size: 16px;
     //line-height: 21px;
   }
-
 
 }
 
