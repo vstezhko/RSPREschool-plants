@@ -74,4 +74,31 @@ window.onload = function() {
         setThirdDisabled()
     }))
 
+
+    // accordion
+
+    const priceItems = document.querySelectorAll('.prices-list-item')
+    const ul = document.querySelector('.prices-list ul')
+
+    ul.addEventListener('click', ()=>{
+        console.log('cgchchch')
+    })
+
+    priceItems.forEach(item => {
+
+        item.addEventListener('click', ()=>{
+            console.log('click')
+            priceItems.forEach(i => {
+                if (i.classList.contains('open') && i !== item) {
+                    i.classList.remove('open')
+                }
+            })
+            item.classList.toggle('open')
+        })
+    })
+
+
+
+
+
 };

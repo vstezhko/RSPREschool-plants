@@ -55,10 +55,7 @@ body {
   color: $fox;
 }
 
-.outline:hover {
-  text-shadow: 0 0 1em $fox;
-  transition: 0.3s;
-}
+
 
 .container {
   width: 1222px;
@@ -144,6 +141,15 @@ body {
   color: $totalBlack;
 }
 
+.prices-accordion-description {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 10px;
+  line-height: 10px;
+  color: #717171;
+}
+
+
 .footer-font {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
@@ -213,12 +219,18 @@ body {
   transition: 0.3s;
 }
 
+
 @media screen and (min-width: 1261px) {
   .button:hover {
     background: $fox;
-    border: 2px solid $fox;
+    border: 1px solid $fox;
     border-radius: 10px;
     color: $totalWhite;
+    transition: 0.3s;
+  }
+
+  .outline:hover .prices-list-item-head {
+    text-shadow: 0 0 1em $fox;
     transition: 0.3s;
   }
 }
@@ -265,6 +277,7 @@ body {
     -moz-background-clip: padding;
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
+    z-index: 1;
   }
 
   .container {
@@ -819,19 +832,33 @@ header {
         flex-direction: column;
         align-items: flex-start;
         gap: 32px;
+        position: absolute;
 
         .prices-list-item {
           background: $lightGreen;
           border-radius: 20px;
-          padding: 10px 40px;
+          padding: 16px 40px;
           width: 250px;
-          height: 50px;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          cursor: pointer;
+          min-height: 50px;
+          transition: all 0.5s;
 
-            .prices-list-item-arrow {
+          &.open{
+            background: #D6E7D2;
+          }
+
+          &.open .prices-list-item-head .select-arrow{
+            background-color: #8BA07E;
+            transform: rotate(-180deg);
+            transition: all 0.3s
+          }
+
+          .prices-list-item-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+
+            .select-arrow {
               width: 16px;
               height: 16px;
               border-radius: 50%;
@@ -839,9 +866,61 @@ header {
               display: flex;
               justify-content: center;
               align-items: center;
+              transition: all 0.3s;
+            }
+          }
+
+          .prices-list-item-accordion {
+            display: none;
+            transition: all 0.3s;
+            position: relative;
+          }
+
+          &.open .prices-list-item-accordion {
+            top: 0;
+            display: block;
+            margin-top: 8px;
+            border-top: 0.5px solid #AEA1A1;
+            padding-top: 6px;
+            transition: all 0.3s;
+
+            .price-accordion-price {
+              margin-top: 6px;
+              margin-bottom: 7px;
+              display: flex;
+              justify-content: flex-start;
+
+              .price-accordion-price-amount {
+                font-family: "Inter", sans-serif;
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 20px;
+                color: #E06733;
+              }
+
+              .price-accordion-price-pertime {
+                font-family: "Inter", sans-serif;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 20px;
+                color: #000000;
+              }
+            }
+            button.price-accordion-order {
+              background: #FFFFFF;
+              border-radius: 10px;
+              padding: 3px 10px;
+              border: 0;
+              font-family: 'Inter', sans-serif;
+              font-weight: 700;
+              font-size: 14px;
+              line-height: 20px;
+              color: #717171;
+              width: 86px;
             }
 
           }
+        }
       }
     }
     .prices-contact {
@@ -871,6 +950,7 @@ header {
         h2 {
           margin-left: 15px;
         }
+
       }
 
       .prices-contact {
@@ -893,7 +973,7 @@ header {
   }
 
   @media screen and (max-width: 720px) {
-    z-index: -1;
+    z-index: 0;
 
     .container {
       padding-top: 25px;
@@ -912,16 +992,19 @@ header {
           padding: 29px 22px;
           margin: 0 auto;
           gap: 14px;
+          position: inherit;
+          z-index: 10;
 
-          li .prices-list-item {
+          .prices-list-item {
             width: 180px;
-            height: 50px;
-            padding: 10px 30px;
-
-            .select-arrow {
-              margin-right: 10px;
-            }
+            padding: 15px 30px;
+            z-index: 10;
           }
+
+          .select-arrow {
+            margin-right: 10px;
+          }
+
         }
       }
 
