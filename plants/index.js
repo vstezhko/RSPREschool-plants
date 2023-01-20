@@ -100,13 +100,53 @@ window.onload = function() {
     const citySelect = document.querySelector('.contact-city-choose-head')
     const citySelectOptions = document.querySelectorAll('.contact-city-choose-options ul li')
     const selectedCity = document.querySelector('.contact-city-chose-title')
+    const addressCard = document.querySelector('.contact-city-addresses')
+    const cardCityField = document.querySelector('.contact-city-addresses .city')
+    const cardPhoneField = document.querySelector('.contact-city-addresses .phone')
+    const cardAddressField = document.querySelector('.contact-city-addresses .address')
+    const callButton = document.querySelector('.contact-city-address')
+
+    const cityInfo = [
+        {
+            city: 'Yonkers, NY',
+            phone: '+1 914 678 0003',
+            address: '511 Warburton Ave'
+        },
+        {
+            city: 'Canandaigua, NY',
+            phone: '+1 585 393 0001',
+            address: '151 Charlotte Street'
+        },
+        {
+            city: 'Sherrill, NY',
+            phone: '+1 315 908 0004',
+            address: '14 WEST Noyes BLVD'
+        },
+        {
+            city: 'New York City',
+            phone: '+1 212 456 0002',
+            address: '9 East 91st Street'
+        },
+    ]
+
+
+    const fillCard = (cityName) => {
+        const selectedCity = cityInfo.find(item => item.city === cityName)
+        cardCityField.textContent = selectedCity.city || ''
+        cardPhoneField.textContent = selectedCity.phone || ''
+        cardAddressField.textContent = selectedCity.address || ''
+        callButton.href = `tel:${selectedCity.phone || ''}`
+    }
 
     const handleSelected = (option) => {
         option.classList.toggle('selected')
         if (option.classList.contains("selected")) {
             selectedCity.textContent = option.textContent
+            addressCard.classList.add('opened')
+            fillCard(option.textContent)
         } else {
             selectedCity.textContent = "City"
+            addressCard.classList.remove('opened')
         }
         citySelect.classList.remove('opened')
     }

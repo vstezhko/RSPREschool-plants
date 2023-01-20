@@ -869,6 +869,7 @@ header .container .burger {
 #contact .container .contact-info .contact-city {
   display: flex;
   justify-content: flex-end;
+  position: relative;
 }
 #contact .container .contact-info .contact-city .contact-city-choose {
   width: 450px;
@@ -904,6 +905,7 @@ header .container .burger {
   transition: all 0.3s;
 }
 #contact .container .contact-info .contact-city .contact-city-choose .contact-city-choose-options {
+  z-index: 3;
   width: 100%;
   display: none;
   position: absolute;
@@ -932,6 +934,60 @@ header .container .burger {
   color: #E06733;
   border-bottom: 1px solid #E06733;
   transition: all 0.3s;
+}
+#contact .container .contact-info .contact-city .contact-city-addresses {
+  display: none;
+  position: absolute;
+  background: #EDF2EC;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  padding: 17px 33px 32px;
+  top: 97px;
+  width: 448px;
+  right: 0;
+  transition: all 0.3s;
+}
+#contact .container .contact-info .contact-city .contact-city-addresses.opened {
+  display: block;
+  transition: all 0.3s;
+}
+#contact .container .contact-info .contact-city .contact-city-addresses ul li {
+  display: flex;
+  justify-content: flex-start;
+}
+#contact .container .contact-info .contact-city .contact-city-addresses ul li .contact-city-addresses-item-field {
+  width: 130px;
+  font-family: "Inter", "sans-serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 40px;
+  letter-spacing: 0.05em;
+  color: #000000;
+}
+#contact .container .contact-info .contact-city .contact-city-addresses ul li .contact-city-addresses-item-info {
+  font-family: "Inter", "sans-serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 40px;
+  letter-spacing: 0.05em;
+  color: #717171;
+}
+#contact .container .contact-info .contact-city .contact-city-addresses a {
+  z-index: 0;
+  display: block;
+  margin: 17px auto 0;
+  border: 1px solid #E06733;
+  border-radius: 5px;
+  padding: 5px 30px;
+  font-family: "Inika", "sans-serif";
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 13px;
+  text-align: center;
+  color: #717171;
+  width: 122px;
 }
 @media screen and (max-width: 1260px) {
   #contact .container {
@@ -964,13 +1020,18 @@ header .container .burger {
   #contact .container .contact-info .contact-city {
     justify-content: center;
   }
+  #contact .container .contact-info .contact-city .contact-city-addresses {
+    right: 50%;
+    transform: translate(50%);
+    top: 80px;
+  }
 }
 @media screen and (max-width: 720px) {
   #contact .container {
     gap: 0;
   }
   #contact .container .img-wrap {
-    margin-top: 133px;
+    margin-top: 0;
     width: 100px;
     height: 124px;
     margin-left: 0;
@@ -989,12 +1050,39 @@ header .container .burger {
     font-size: 25px;
     line-height: 33px;
   }
+  #contact .container .contact-info .contact-city {
+    flex-direction: column;
+    padding-bottom: 133px;
+  }
   #contact .container .contact-info .contact-city .contact-city-choose {
     width: 300px;
   }
   #contact .container .contact-info .contact-city .contact-city-choose .contact-city-chose-title.description-font {
     font-size: 20px;
     line-height: 40px;
+  }
+  #contact .container .contact-info .contact-city .contact-city-addresses {
+    position: static;
+    width: 300px;
+    padding: 13px 14px 17px;
+    transform: none;
+    margin-top: 50px;
+    transition: all 0.3s;
+  }
+  #contact .container .contact-info .contact-city .contact-city-addresses .contact-city-choose {
+    margin-bottom: 0;
+  }
+  #contact .container .contact-info .contact-city .contact-city-addresses ul li .contact-city-addresses-item-field {
+    font-size: 14px;
+    line-height: 28px;
+  }
+  #contact .container .contact-info .contact-city .contact-city-addresses ul li .contact-city-addresses-item-info {
+    font-size: 14px;
+    line-height: 28px;
+  }
+  #contact .container .contact-info .contact-city .contact-city-addresses a {
+    font-size: 14px;
+    line-height: 26px;
   }
 }
 
