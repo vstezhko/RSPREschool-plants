@@ -34,11 +34,6 @@ body {
   color: #E06733;
 }
 
-.outline:hover {
-  text-shadow: 0 0 1em #E06733;
-  transition: 0.3s;
-}
-
 .container {
   width: 1222px;
   margin: 0 auto;
@@ -124,6 +119,14 @@ body {
   color: #000000;
 }
 
+.prices-accordion-description {
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  font-size: 10px;
+  line-height: 10px;
+  color: #717171;
+}
+
 .footer-font {
   font-family: "Inter", sans-serif;
   font-weight: 400;
@@ -159,19 +162,42 @@ body {
   width: 161px;
   color: #E06733;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-.button:hover {
+.button.active {
   background: #E06733;
   color: #FFFFFF;
   transition: 0.3s;
 }
 
-.button-active {
-  background: #E06733;
-  color: #FFFFFF;
+.button:disabled {
+  color: #717171;
+  border-color: #717171;
+  transition: 0.3s;
+  pointer-events: none;
 }
 
+.service-cards .card.blur,
+.service-cards .card.blur,
+.service-cards .card.blur {
+  filter: blur(2px);
+  transition: 0.3s;
+}
+
+@media screen and (min-width: 1261px) {
+  .button:hover {
+    background: #E06733;
+    border: 1px solid #E06733;
+    border-radius: 10px;
+    color: #FFFFFF;
+    transition: 0.3s;
+  }
+  .outline:hover {
+    text-shadow: 0 0 1em #E06733;
+    transition: 0.3s;
+  }
+}
 @media screen and (max-width: 1260px) {
   .container {
     width: 668px;
@@ -201,6 +227,7 @@ body {
     -moz-background-clip: padding;
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
+    z-index: 1;
   }
   .container {
     width: 330px;
@@ -653,19 +680,30 @@ header .container .burger {
   flex-direction: column;
   align-items: flex-start;
   gap: 32px;
+  position: absolute;
 }
 #prices .container .prices-list ul .prices-list-item {
   background: #EDF2EC;
   border-radius: 20px;
-  padding: 10px 40px;
+  padding: 16px 40px;
   width: 250px;
-  height: 50px;
+  min-height: 50px;
+  transition: all 0.5s;
+}
+#prices .container .prices-list ul .prices-list-item.open {
+  background: #D6E7D2;
+}
+#prices .container .prices-list ul .prices-list-item.open .prices-list-item-head .select-arrow {
+  background-color: #8BA07E;
+  transform: rotate(-180deg);
+  transition: all 0.3s;
+}
+#prices .container .prices-list ul .prices-list-item .prices-list-item-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  cursor: pointer;
 }
-#prices .container .prices-list ul .prices-list-item .prices-list-item-arrow {
+#prices .container .prices-list ul .prices-list-item .prices-list-item-head .select-arrow {
   width: 16px;
   height: 16px;
   border-radius: 50%;
@@ -673,6 +711,53 @@ header .container .burger {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+#prices .container .prices-list ul .prices-list-item .prices-list-item-accordion {
+  display: none;
+  transition: all 0.3s;
+  position: relative;
+}
+#prices .container .prices-list ul .prices-list-item.open .prices-list-item-accordion {
+  top: 0;
+  display: block;
+  margin-top: 8px;
+  border-top: 0.5px solid #AEA1A1;
+  padding-top: 6px;
+  transition: all 0.3s;
+}
+#prices .container .prices-list ul .prices-list-item.open .prices-list-item-accordion .price-accordion-price {
+  margin-top: 6px;
+  margin-bottom: 7px;
+  display: flex;
+  justify-content: flex-start;
+}
+#prices .container .prices-list ul .prices-list-item.open .prices-list-item-accordion .price-accordion-price .price-accordion-price-amount {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #E06733;
+}
+#prices .container .prices-list ul .prices-list-item.open .prices-list-item-accordion .price-accordion-price .price-accordion-price-pertime {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  color: #000000;
+}
+#prices .container .prices-list ul .prices-list-item.open .prices-list-item-accordion a.price-accordion-order {
+  background: #FFFFFF;
+  border-radius: 10px;
+  padding: 3px 10px;
+  border: 0;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #717171;
+  width: 86px;
 }
 #prices .container .prices-contact {
   display: flex;
@@ -711,7 +796,7 @@ header .container .burger {
 }
 @media screen and (max-width: 720px) {
   #prices {
-    z-index: -1;
+    z-index: 0;
   }
   #prices .container {
     padding-top: 25px;
@@ -728,13 +813,15 @@ header .container .burger {
     padding: 29px 22px;
     margin: 0 auto;
     gap: 14px;
+    position: inherit;
+    z-index: 10;
   }
-  #prices .container .prices-list ul li .prices-list-item {
+  #prices .container .prices-list ul .prices-list-item {
     width: 180px;
-    height: 50px;
-    padding: 10px 30px;
+    padding: 15px 30px;
+    z-index: 10;
   }
-  #prices .container .prices-list ul li .prices-list-item .select-arrow {
+  #prices .container .prices-list ul .select-arrow {
     margin-right: 10px;
   }
   #prices .container .prices-contact {
@@ -782,8 +869,13 @@ header .container .burger {
 #contact .container .contact-info .contact-city {
   display: flex;
   justify-content: flex-end;
+  position: relative;
 }
 #contact .container .contact-info .contact-city .contact-city-choose {
+  width: 450px;
+  position: relative;
+}
+#contact .container .contact-info .contact-city .contact-city-choose .contact-city-choose-head {
   cursor: pointer;
   background: #D6E7D2;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -791,8 +883,111 @@ header .container .burger {
   justify-content: space-between;
   align-items: center;
   padding: 2px 20px;
-  width: 450px;
+  width: 100%;
   height: 50px;
+}
+#contact .container .contact-info .contact-city .contact-city-choose .contact-city-choose-head .select-arrow {
+  transition: all 0.3s;
+}
+#contact .container .contact-info .contact-city .contact-city-choose .contact-city-choose-head.opened {
+  background: #C1E698;
+  border: 1px solid #D6E7D2;
+  border-radius: 0;
+  box-shadow: none;
+}
+#contact .container .contact-info .contact-city .contact-city-choose .contact-city-choose-head.opened .select-arrow {
+  background-color: #8BA07E;
+  transform: rotate(-180deg);
+  transition: all 0.3s;
+}
+#contact .container .contact-info .contact-city .contact-city-choose .contact-city-choose-head.opened ~ .contact-city-choose-options {
+  display: block;
+  transition: all 0.3s;
+}
+#contact .container .contact-info .contact-city .contact-city-choose .contact-city-choose-options {
+  z-index: 3;
+  width: 100%;
+  display: none;
+  position: absolute;
+  padding: 2px 20px 30px;
+  background-color: #DCE9D9;
+  transition: all 0.3s;
+}
+#contact .container .contact-info .contact-city .contact-city-choose .contact-city-choose-options ul li {
+  font-family: "Inter", "sans-serif";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 40px;
+  letter-spacing: 0.05em;
+  color: #499A18;
+  border-bottom: 1px solid #D9D9D9;
+  padding-left: 3px;
+  transition: all 0.3s;
+}
+#contact .container .contact-info .contact-city .contact-city-choose .contact-city-choose-options ul li:hover {
+  border-bottom: 1px solid #717171;
+  color: #717171;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+#contact .container .contact-info .contact-city .contact-city-choose .contact-city-choose-options ul li.selected {
+  color: #E06733;
+  border-bottom: 1px solid #E06733;
+  transition: all 0.3s;
+}
+#contact .container .contact-info .contact-city .contact-city-addresses {
+  display: none;
+  position: absolute;
+  background: #EDF2EC;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  padding: 17px 33px 32px;
+  top: 97px;
+  width: 448px;
+  right: 0;
+  transition: all 0.3s;
+}
+#contact .container .contact-info .contact-city .contact-city-addresses.opened {
+  display: block;
+  transition: all 0.3s;
+}
+#contact .container .contact-info .contact-city .contact-city-addresses ul li {
+  display: flex;
+  justify-content: flex-start;
+}
+#contact .container .contact-info .contact-city .contact-city-addresses ul li .contact-city-addresses-item-field {
+  width: 130px;
+  font-family: "Inter", "sans-serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 40px;
+  letter-spacing: 0.05em;
+  color: #000000;
+}
+#contact .container .contact-info .contact-city .contact-city-addresses ul li .contact-city-addresses-item-info {
+  font-family: "Inter", "sans-serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 40px;
+  letter-spacing: 0.05em;
+  color: #717171;
+}
+#contact .container .contact-info .contact-city .contact-city-addresses a {
+  z-index: 0;
+  display: block;
+  margin: 17px auto 0;
+  border: 1px solid #E06733;
+  border-radius: 5px;
+  padding: 5px 30px;
+  font-family: "Inika", "sans-serif";
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 13px;
+  text-align: center;
+  color: #717171;
+  width: 122px;
 }
 @media screen and (max-width: 1260px) {
   #contact .container {
@@ -825,13 +1020,18 @@ header .container .burger {
   #contact .container .contact-info .contact-city {
     justify-content: center;
   }
+  #contact .container .contact-info .contact-city .contact-city-addresses {
+    right: 50%;
+    transform: translate(50%);
+    top: 80px;
+  }
 }
 @media screen and (max-width: 720px) {
   #contact .container {
     gap: 0;
   }
   #contact .container .img-wrap {
-    margin-top: 133px;
+    margin-top: 0;
     width: 100px;
     height: 124px;
     margin-left: 0;
@@ -850,12 +1050,39 @@ header .container .burger {
     font-size: 25px;
     line-height: 33px;
   }
+  #contact .container .contact-info .contact-city {
+    flex-direction: column;
+    padding-bottom: 133px;
+  }
   #contact .container .contact-info .contact-city .contact-city-choose {
     width: 300px;
   }
   #contact .container .contact-info .contact-city .contact-city-choose .contact-city-chose-title.description-font {
     font-size: 20px;
     line-height: 40px;
+  }
+  #contact .container .contact-info .contact-city .contact-city-addresses {
+    position: static;
+    width: 300px;
+    padding: 13px 14px 17px;
+    transform: none;
+    margin-top: 50px;
+    transition: all 0.3s;
+  }
+  #contact .container .contact-info .contact-city .contact-city-addresses .contact-city-choose {
+    margin-bottom: 0;
+  }
+  #contact .container .contact-info .contact-city .contact-city-addresses ul li .contact-city-addresses-item-field {
+    font-size: 14px;
+    line-height: 28px;
+  }
+  #contact .container .contact-info .contact-city .contact-city-addresses ul li .contact-city-addresses-item-info {
+    font-size: 14px;
+    line-height: 28px;
+  }
+  #contact .container .contact-info .contact-city .contact-city-addresses a {
+    font-size: 14px;
+    line-height: 26px;
   }
 }
 

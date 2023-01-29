@@ -59,14 +59,14 @@
                         projects</h1>
                     <div class="service-title-filters">
                         <ul class="button-font">
-                            <li><button class="button button-font">Gardens</button></li>
-                            <li><button class="button button-font">Lawn</button></li>
-                            <li><button class="button button-font">Planting</button></li>
+                            <li><button class="button button-font" data-service="gardens">Gardens</button></li>
+                            <li><button class="button button-font" data-service="lawn">Lawn</button></li>
+                            <li><button class="button button-font" data-service="planting">Planting</button></li>
                         </ul>
                     </div>
                 </div>
                 <div class="service-cards">
-                    <div class="card">
+                    <div class="card" data-service="gardens">
                         <div class="img-wrap">
                             <img src="images/garden-care.png" alt="photo garden care">
                         </div>
@@ -75,7 +75,7 @@
                             <p class="cards-description-font">Lorem Ipsum has been the industry</p>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card"  data-service="planting">
                         <div class="img-wrap">
                             <img src="images/planting.png" alt="photo planting">
                         </div>
@@ -84,7 +84,7 @@
                             <p class="cards-description-font">Lorem Ipsum has been the industry</p>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card" data-service="lawn">
                         <div class="img-wrap">
                             <img src="images/lawn-care.png" alt="photo lawn care">
                         </div>
@@ -93,7 +93,7 @@
                             <p class="cards-description-font">Lorem Ipsum has been the industry</p>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card" data-service="planting">
                         <div class="img-wrap">
                             <img src="images/planting-2.png" alt="photo planting">
                         </div>
@@ -102,7 +102,7 @@
                             <p class="cards-description-font">Lorem Ipsum has been the industry</p>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card" data-service="gardens">
                         <div class="img-wrap">
                             <img src="images/carden-care2.png" alt="photo garden care">
                         </div>
@@ -111,7 +111,7 @@
                             <p class="cards-description-font">Lorem Ipsum has been the industry</p>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card" data-service="planting">
                         <div class="img-wrap">
                             <img src="images/planting3.png" alt="photo planting">
                         </div>
@@ -129,26 +129,63 @@
                     <h2 class="prices-title-font">Prices</h2>
                     <ul>
                         <li>
-                            <div class="prices-list-item outline">
-                                <h5 class="prices-list-item-title prices-item-font">Basics</h5>
-                                <div class="select-arrow">
-                                    <img src="images/arrow.svg" alt="arrow-button">
+                            <div class="prices-list-item">
+                                <div class="prices-list-item-head">
+                                    <h5 class="prices-list-item-title prices-item-font">Basics</h5>
+                                    <div class="select-arrow">
+                                        <img src="images/arrow.svg" alt="arrow-button">
+                                    </div>
+                                </div>
+                                <div class="prices-list-item-accordion">
+                                    <p class="prices-accordion-description">
+                                        Release of Letraset sheets containing Lorem Ipsum passages, and more recently
+                                    </p>
+                                    <div class="price-accordion-price">
+                                        <p class="price-accordion-price-amount">$15</p>
+                                        <p class="price-accordion-price-pertime">/ per hour</p>
+                                    </div>
+                                    <a href="#contact" class="price-accordion-order">Order</a>
+                                </div>
+                            </div>
+
+                        </li>
+                        <li>
+                            <div class="prices-list-item">
+                                <div class="prices-list-item-head">
+                                    <h5 class="prices-list-item-title prices-item-font">Standart</h5>
+                                    <div class="select-arrow">
+                                        <img src="images/arrow.svg" alt="arrow-button">
+                                    </div>
+                                </div>
+                                <div class="prices-list-item-accordion">
+                                    <p class="prices-accordion-description">
+                                        Release of Letraset sheets containing Lorem Ipsum passages, and more recently
+                                    </p>
+                                    <div class="price-accordion-price">
+                                        <p class="price-accordion-price-amount">$25</p>
+                                        <p class="price-accordion-price-pertime">/ per hour</p>
+                                    </div>
+                                    <a href="#contact" class="price-accordion-order">Order</a>
                                 </div>
                             </div>
                         </li>
                         <li>
-                            <div class="prices-list-item outline">
-                                <h5 class="prices-list-item-title prices-item-font">Standart</h5>
-                                <div class="select-arrow">
-                                    <img src="images/arrow.svg" alt="arrow-button">
+                            <div class="prices-list-item">
+                                <div class="prices-list-item-head">
+                                    <h5 class="prices-list-item-title prices-item-font">Pro care</h5>
+                                    <div class="select-arrow">
+                                        <img src="images/arrow.svg" alt="arrow-button">
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="prices-list-item outline">
-                                <h5 class="prices-list-item-title prices-item-font">Pro care</h5>
-                                <div class="select-arrow">
-                                    <img src="images/arrow.svg" alt="arrow-button">
+                                <div class="prices-list-item-accordion">
+                                    <p class="prices-accordion-description">
+                                        Release of Letraset sheets containing Lorem Ipsum passages, and more recently
+                                    </p>
+                                    <div class="price-accordion-price">
+                                        <p class="price-accordion-price-amount">$35</p>
+                                        <p class="price-accordion-price-pertime">/ per hour</p>
+                                    </div>
+                                    <a href="#contact" class="price-accordion-order">Order</a>
                                 </div>
                             </div>
                         </li>
@@ -170,10 +207,37 @@
                     <h2 class="title-font green">Contact us</h2>
                     <div class="contact-city">
                         <div class="contact-city-choose">
-                            <p class="contact-city-chose-title description-font">City</p>
-                            <div class="select-arrow">
-                                <img src="images/arrow.svg" alt="arrow-button">
+                            <div class="contact-city-choose-head">
+                                <p class="contact-city-chose-title description-font">City</p>
+                                <div class="select-arrow">
+                                    <img src="images/arrow.svg" alt="arrow-button">
+                                </div>
                             </div>
+                            <div class="contact-city-choose-options">
+                                <ul>
+                                    <li>Canandaigua, NY</li>
+                                    <li>New York City</li>
+                                    <li>Yonkers, NY</li>
+                                    <li>Sherrill, NY</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="contact-city-addresses">
+                            <ul>
+                                <li class="contact-city-addresses-item">
+                                    <p class="contact-city-addresses-item-field">City:</p>
+                                    <p class="contact-city-addresses-item-info city" data-field="city">Canandaigua, NY</p>
+                                </li>
+                                <li class="contact-city-addresses-item">
+                                    <p class="contact-city-addresses-item-field">Phone:</p>
+                                    <p class="contact-city-addresses-item-info phone" data-field="phone">+1	585	393 0001</p>
+                                </li>
+                                <li class="contact-city-addresses-item">
+                                    <p class="contact-city-addresses-item-field">Office address:</p>
+                                    <p class="contact-city-addresses-item-info address" data-field="address">151 Charlotte Street</p>
+                                </li>
+                            </ul>
+                            <a class="button contact-city-address">Call us</a>
                         </div>
                     </div>
                 </div>
