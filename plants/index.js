@@ -70,7 +70,7 @@ window.onload = function() {
         }
 
         cards.forEach(card => {
-            activeService.includes(card.attributes['data-service'].value) ? card.classList.add('blur') : card.classList.remove('blur')
+            !activeService.includes(card.attributes['data-service'].value) ? card.classList.add('blur') : card.classList.remove('blur')
         })
         removeThirdDisabled()
         setThirdDisabled()
